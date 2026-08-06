@@ -1,4 +1,8 @@
-document.querySelector("form").addEventListener("submit", function(e){
+import { db } from "./firebase.js";
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+document.querySelector("form").addEventListener("submit", async function(e){
 
 e.preventDefault();
 
@@ -32,6 +36,22 @@ let price = prices[packageName] || 0;
 
 let bookingId = "MD" + Math.floor(Math.random()*100000);
 
+
+// Firebase me save
+await addDoc(collection(db,"bookings"),{
+
+bookingId: bookingId,
+name: name,
+mobile: mobile,
+date: date,
+event: eventType,
+package: packageName,
+price: price
+
+});
+
+
+// Receipt ke liye save
 
 localStorage.setItem("bookingId",bookingId);
 localStorage.setItem("name",name);
