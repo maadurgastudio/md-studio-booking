@@ -1,15 +1,22 @@
-document.querySelector("form").addEventListener("submit", function(e){
+document.addEventListener("DOMContentLoaded", function(){
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function(e){
 
 e.preventDefault();
+
 
 let name = document.querySelector("input[type='text']").value;
 let mobile = document.querySelector("input[type='number']").value;
 let date = document.querySelector("input[type='date']").value;
 
+
 let selects = document.querySelectorAll("select");
 
 let eventType = selects[0].value;
 let packageName = selects[1].value;
+
 
 let prices = {
 "4K Videography":10000,
@@ -21,17 +28,25 @@ let prices = {
 "4K + DSLR + Drone":24999
 };
 
+
 let price = prices[packageName] || 0;
+
 
 let bookingId = "MD" + Math.floor(Math.random()*100000);
 
-localStorage.setItem("bookingId",bookingId);
-localStorage.setItem("name",name);
-localStorage.setItem("mobile",mobile);
-localStorage.setItem("date",date);
-localStorage.setItem("package",packageName);
-localStorage.setItem("price",price);
 
-window.location.href="receipt.html";
+
+localStorage.setItem("bookingId", bookingId);
+localStorage.setItem("name", name);
+localStorage.setItem("mobile", mobile);
+localStorage.setItem("date", date);
+localStorage.setItem("package", packageName);
+localStorage.setItem("price", price);
+
+
+window.location.href = "receipt.html";
+
+
+});
 
 });
