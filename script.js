@@ -1,8 +1,11 @@
+import { db } from "./firebase.js";
+
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 document.addEventListener("DOMContentLoaded", function(){
 
 const form = document.querySelector("form");
 
-form.addEventListener("submit", function(e){
+form.addEventListener("submit", async function(e){
 
 e.preventDefault();
 
@@ -34,7 +37,17 @@ let price = prices[packageName] || 0;
 
 let bookingId = "MD" + Math.floor(Math.random()*100000);
 
+await addDoc(collection(db,"bookings"),{
 
+bookingId: bookingId,
+name: name,
+mobile: mobile,
+date: date,
+event: eventType,
+package: packageName,
+price: price
+
+});
 
 localStorage.setItem("bookingId", bookingId);
 localStorage.setItem("name", name);
