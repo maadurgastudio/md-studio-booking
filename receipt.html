@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,59 +12,50 @@
 
 </head>
 
+
 <body>
 
-<section>
 
 <h1>माँ दुर्गा फोटो एंड वीडियोग्राफी</h1>
 
 <h2>Booking Receipt</h2>
 
-<div class="box">
 
-<p><b>Booking ID:</b> <span id="id"></span></p>
+<div>
 
-<p><b>Customer Name:</b> <span id="name"></span></p>
+<p>Booking ID: <span id="id"></span></p>
 
-<p><b>Mobile:</b> <span id="mobile"></span></p>
+<p>Name: <span id="name"></span></p>
 
-<p><b>Event Date:</b> <span id="date"></span></p>
+<p>Mobile: <span id="mobile"></span></p>
 
-<p><b>Package:</b> <span id="package"></span></p>
+<p>Date: <span id="date"></span></p>
 
-<p><b>Total Amount:</b> ₹<span id="price"></span></p>
+<p>Package: <span id="package"></span></p>
 
-<hr>
+<p>Total Price: ₹<span id="price"></span></p>
 
-<p>धन्यवाद! आपके खास पल को यादगार बनाने का अवसर देने के लिए।</p>
 
 </div>
-
-</section>
 
 
 <script>
 
-document.getElementById("id").innerHTML =
-localStorage.getItem("bookingId");
+document.getElementById("id").innerHTML = localStorage.getItem("bookingId");
 
-document.getElementById("name").innerHTML =
-localStorage.getItem("name");
+document.getElementById("name").innerHTML = localStorage.getItem("name");
 
-document.getElementById("mobile").innerHTML =
-localStorage.getItem("mobile");
+document.getElementById("mobile").innerHTML = localStorage.getItem("mobile");
 
-document.getElementById("date").innerHTML =
-localStorage.getItem("date");
+document.getElementById("date").innerHTML = localStorage.getItem("date");
 
-document.getElementById("package").innerHTML =
-localStorage.getItem("package");
+document.getElementById("package").innerHTML = localStorage.getItem("package");
 
-document.getElementById("price").innerHTML =
-localStorage.getItem("price");
+document.getElementById("price").innerHTML = localStorage.getItem("price");
 
 </script>
 
 
 </body>
+
 </html>
