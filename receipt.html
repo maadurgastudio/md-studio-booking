@@ -27,16 +27,19 @@ body{
 h1{
     text-align:center;
     color:#ffd700;
+    font-size:24px;
 }
 
 .address{
     text-align:center;
-    font-size:13px;
     color:#ddd;
+    font-size:13px;
+    margin-bottom:20px;
 }
 
 h2{
     text-align:center;
+    color:#ffd700;
 }
 
 p{
@@ -45,14 +48,20 @@ p{
 }
 
 button{
+
     width:100%;
     padding:12px;
     margin-top:20px;
+
     background:#ffd700;
+    color:#000;
+
     border:0;
     border-radius:8px;
+
     font-size:16px;
     font-weight:bold;
+
 }
 
 </style>
@@ -62,35 +71,48 @@ button{
 
 <body>
 
+
 <div class="receipt" id="receipt">
+
 
 <h1>
 📸 माँ दुर्गा फोटो एंड वीडियोग्राफी
 </h1>
 
+
 <div class="address">
 भोपतपुर, मंगरा, बरसठी, जौनपुर, उत्तर प्रदेश 222162
 </div>
 
-<h2>Booking Receipt</h2>
+
+<h2>
+Booking Receipt
+</h2>
+
 
 <div id="details"></div>
 
-<button onclick="window.print()">
-Download / Save Receipt
+
+<button onclick="downloadReceipt()">
+Download Receipt
 </button>
+
 
 </div>
 
 
+
 <script>
+
 
 let data = JSON.parse(localStorage.getItem("bookingData"));
 
 
 if(data){
 
+
 let prices = {
+
 "4K Videography - ₹10000":10000,
 "DSLR Photography - ₹8000":8000,
 "Drone Shoot - ₹8000":8000,
@@ -98,10 +120,12 @@ let prices = {
 "4K + Drone - ₹16999":16999,
 "DSLR + Drone - ₹14999":14999,
 "4K + DSLR + Drone - ₹24999":24999
+
 };
 
 
 let total = prices[data.package] || 0;
+
 
 
 document.getElementById("details").innerHTML = `
@@ -128,12 +152,23 @@ document.getElementById("details").innerHTML = `
 
 `;
 
-}else{
+
+}
+else{
 
 document.getElementById("details").innerHTML =
 "<p>Booking data nahi mila</p>";
 
 }
+
+
+
+function downloadReceipt(){
+
+window.print();
+
+}
+
 
 </script>
 
