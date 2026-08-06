@@ -2,7 +2,6 @@
 <html lang="hi">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,35 +12,48 @@
 body{
     background:#111;
     color:white;
-    font-family:Arial;
+    font-family:Arial,sans-serif;
     padding:20px;
 }
 
 .receipt{
-
     max-width:500px;
     margin:auto;
     background:#1c1c1c;
     padding:25px;
     border-radius:15px;
-    box-shadow:0 0 15px black;
-
 }
 
 h1{
-
     text-align:center;
     color:#ffd700;
+}
 
+.address{
+    text-align:center;
+    font-size:13px;
+    color:#ddd;
+}
+
+h2{
+    text-align:center;
 }
 
 p{
-
-    border-bottom:1px solid #444;
     padding:8px;
-
+    border-bottom:1px solid #444;
 }
 
+button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    background:#ffd700;
+    border:0;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+}
 
 </style>
 
@@ -50,28 +62,46 @@ p{
 
 <body>
 
-
-<div class="receipt">
+<div class="receipt" id="receipt">
 
 <h1>
 📸 माँ दुर्गा फोटो एंड वीडियोग्राफी
 </h1>
 
-<h2>
-Booking Receipt
-</h2>
+<div class="address">
+भोपतपुर, मंगरा, बरसठी, जौनपुर, उत्तर प्रदेश 222162
+</div>
 
+<h2>Booking Receipt</h2>
 
 <div id="details"></div>
 
+<button onclick="window.print()">
+Download / Save Receipt
+</button>
 
 </div>
 
 
 <script>
 
-
 let data = JSON.parse(localStorage.getItem("bookingData"));
+
+
+if(data){
+
+let prices = {
+"4K Videography - ₹10000":10000,
+"DSLR Photography - ₹8000":8000,
+"Drone Shoot - ₹8000":8000,
+"4K + DSLR - ₹16999":16999,
+"4K + Drone - ₹16999":16999,
+"DSLR + Drone - ₹14999":14999,
+"4K + DSLR + Drone - ₹24999":24999
+};
+
+
+let total = prices[data.package] || 0;
 
 
 document.getElementById("details").innerHTML = `
@@ -90,12 +120,20 @@ document.getElementById("details").innerHTML = `
 
 <p><b>Package:</b> ${data.package}</p>
 
+<p><b>Total Amount:</b> ₹${total}</p>
+
 <p><b>Message:</b> ${data.message}</p>
 
 <p>Thank You For Booking 🙏</p>
 
 `;
 
+}else{
+
+document.getElementById("details").innerHTML =
+"<p>Booking data nahi mila</p>";
+
+}
 
 </script>
 
