@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Booking Receipt</title>
+
+<style>
+
+body{
+    background:#111;
+    color:white;
+    font-family:Arial;
+    padding:20px;
+}
+
+.receipt{
+
+    max-width:500px;
+    margin:auto;
+    background:#1c1c1c;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 15px black;
+
+}
+
+h1{
+
+    text-align:center;
+    color:#ffd700;
+
+}
+
+p{
+
+    border-bottom:1px solid #444;
+    padding:8px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="receipt">
+
+<h1>
+📸 माँ दुर्गा फोटो एंड वीडियोग्राफी
+</h1>
+
+<h2>
+Booking Receipt
+</h2>
+
+
+<div id="details"></div>
+
+
+</div>
+
+
+<script>
+
+
+let data = JSON.parse(localStorage.getItem("bookingData"));
+
+
+document.getElementById("details").innerHTML = `
+
+<p><b>Name:</b> ${data.name}</p>
+
+<p><b>Mobile:</b> ${data.mobile}</p>
+
+<p><b>Address:</b> ${data.address}</p>
+
+<p><b>Event:</b> ${data.event}</p>
+
+<p><b>Date:</b> ${data.date}</p>
+
+<p><b>Time:</b> ${data.time}</p>
+
+<p><b>Package:</b> ${data.package}</p>
+
+<p><b>Message:</b> ${data.message}</p>
+
+<p>Thank You For Booking 🙏</p>
+
+`;
+
+
+</script>
+
+
+</body>
+
+</html>
